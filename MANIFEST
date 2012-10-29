@@ -1,8 +1,10 @@
 Changes
+Excel-Table0.xls
+Excel-Table1.xlsx
+lib/Excel/Table.pm
 Makefile.PL
 MANIFEST
 README
-lib/Excel/Table.pm
 t/Excel-Table1a.t
 t/Excel-Table1b.t
 t/Excel-Table2.t
@@ -10,7 +12,5 @@ t/Excel-Table3.t
 t/Excel-Table4a.t
 t/Excel-Table4b.t
 t/Excel-Table5.t
-Excel-Table0.xls
-Excel-Table1.xlsx
 META.yml                                 Module YAML meta-data (added by MakeMaker)
 META.json                                Module JSON meta-data (added by MakeMaker)
