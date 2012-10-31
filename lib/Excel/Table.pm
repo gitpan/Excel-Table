@@ -16,40 +16,6 @@ package Excel::Table;
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 #
-#
-# History:
-# $Log: Table.pm,v $
-# Revision 1.10  2012/10/23 20:00:40  tomby
-# Added select and refined for CPAN upload.
-#
-# Revision 1.9  2011/04/07 05:08:26  tomby
-# now compatible with Excel 2007 format.
-#
-# Revision 1.8  2010/10/05 02:09:20  tomby
-# corrected documentation.
-#
-# Revision 1.7  2010/07/09 03:29:40  tomby
-# cleanup.
-#
-# Revision 1.6  2010/07/09 03:23:19  tomby
-# Added null and trim functionality.
-#
-# Revision 1.5  2010/06/03 09:09:21  tomby
-# added colid functions.
-#
-# Revision 1.4  2010/05/28 06:26:35  tomby
-# Added documentation.
-#
-# Revision 1.3  2010/05/27 08:37:12  tomby
-# unit testing for extract routine.
-#
-# Revision 1.2  2010/05/25 09:16:53  tomby
-# refined open and list_workbooks functions.
-#
-# Revision 1.1  2010/05/25 06:57:46  tomby
-# Initial revision
-#
-
 =head1 NAME
 
 Excel::Table 
@@ -175,56 +141,56 @@ be revised.
 
 Per the B<select> method, but returns an array of hashes.
 
-=item 6.  OBJ->force_null
+=item 6.  OBJ->columns or OBJ->rows
+
+Returns the number of columns or rows available in the sheet extracted via the
+B<extract> method.
+
+=item 7a.  OBJ->force_null
 
 Flag which determines if whitespace fields should be
 replaced by specific text (see OBJ->null).
 
-=item 6.  OBJ->null
+=item 7b.  OBJ->null
 
 String to replace whitespace fields with.  Defaults to "(null)".
 
-=item 6.  OBJ->rowid
+=item 8.  OBJ->rowid
 
 Flag which determines whether a pseudo-column "rowid" is included in each
 tuple.  The value will take the form "999999999"  Defaults to FALSE.  
 
-=item 6.  OBJ->sheet_name
+=item 9.  OBJ->sheet_name
 
 Returns the sheet_name against which data was extracted via B<extract>.
 
-=item 7.  OBJ->titles
+=item 10.  OBJ->trim
+
+Flag which determines if trailing whitespace fields should be trimmed.
+
+=item 11a.  OBJ->title_row
+
+Returns the title row of the worksheet (defaults to zero), following extract.
+
+=item 11b.  OBJ->titles
 
 Returns an array of title fields, the title row number having been defined
 as OBJ->title_row.
 
-=item 6.  OBJ->trim
-
-Flag which determines if trailing whitespace fields should be trimmed.
-
-=item 8.  OBJ->widths
-
-Returns an array of maximum lengths of any (non-title) data in each column.
-
-=item 9.  OBJ->columns (OBJ->rows)
-
-Returns the number of columns (rows) available in the sheet extracted via the
-B<extract> method.
-
-=item 10.  OBJ->title_row
-
-Returns the title row of the worksheet (defaults to zero), following extract.
-
-=item 11a.  OBJ->colid2title(colid)
+=item 11c.  OBJ->colid2title(colid)
 
 Converts the column number (colid) to a string column title (i.e. 
 the offset within the title_row array).
 If no match, then returns undef.
 
-=item 11b.  OBJ->title2colid(REGEXP)
+=item 11d.  OBJ->title2colid(REGEXP)
 
 Returns the column number of the title identified by REGEXP.
 If no match, then returns undef.
+
+=item 12.  OBJ->widths
+
+Returns an array of maximum lengths of any (non-title) data in each column.
 
 =back
 
@@ -243,7 +209,7 @@ use Log::Log4perl qw/ get_logger /;
 
 use vars qw/ @EXPORT $VERSION /;
 
-$VERSION = "1.011";	# update this on new release
+$VERSION = "1.012";	# update this on new release
 
 #@ISA = qw(Exporter);
 #@EXPORT = qw();
@@ -756,7 +722,7 @@ __END__
 
 =head1 VERSION
 
-$Revision: 1.10 $
+Build V1.012
 
 =head1 AUTHOR
 
