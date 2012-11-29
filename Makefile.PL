@@ -4,7 +4,7 @@ use ExtUtils::MakeMaker;
 # the contents of the Makefile that is written.
 
 
-my $preop = 'find $(DISTVNAME) -type f -exec egrep -q Build V1.014 {} \; -exec sed -i "s/___EUMM_VERSION___/Build V$(VERSION)/" {} \; -print ;' .
+my $preop = 'find $(DISTVNAME) -type f -exec egrep -q Build V1.015 {} \; -exec sed -i "s/___EUMM_VERSION___/Build V$(VERSION)/" {} \; -print ;' .
 'perldoc -uT $(DISTVNAME)/$(VERSION_FROM) > README.pod';
 
 WriteMakefile(

@@ -47,9 +47,8 @@ use strict;
 use Data::Dumper;
 
 # ---- logging ---- 
-#use Log::Log4perl qw/ :easy /;
-#Log::Log4perl->easy_init($ERROR);
-use Logfer qw/ :all /;
+use Log::Log4perl qw/ :easy /;
+Log::Log4perl->easy_init($ERROR);
 
 my $log = get_logger(__FILE__);
 
@@ -135,7 +134,7 @@ Hash extraction and select.
 
 =head1 VERSION
 
-Build V1.014
+Build V1.015
 
 =head1 AUTHOR
 
