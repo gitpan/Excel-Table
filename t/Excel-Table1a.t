@@ -46,6 +46,8 @@ use strict;
 
 use Data::Dumper;
 use Log::Log4perl qw/ :easy /;
+use File::Spec;
+
 Log::Log4perl->easy_init($ERROR);
 
 
@@ -91,7 +93,7 @@ for my $s_book (@s_books) {
 	is( $xt1->regexp, $s_prefix,		"regexp $cycle");
 
 	isa_ok( $xt1->open($s_book), $c_wbook,	"open $cycle");
-	is( $xt1->pathname, $s_book,		"pathname $cycle");
+	is( $xt1->pathname, File::Spec->catfile($xt1->dir, $s_book),		"pathname $cycle");
 
 	# ---- simple attributes ----
 
@@ -136,7 +138,7 @@ Basic attributes, opens, and listing functions.
 
 =head1 VERSION
 
-Build V1.016
+Build V1.017
 
 =head1 AUTHOR
 

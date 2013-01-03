@@ -78,7 +78,14 @@ if they are structured tables array-format.
 
 =over 4
 
-=item 1.  OBJ->list_workbooks
+=item 1a.  OBJ->dir(EXPR)
+
+Override the directory location in which to look for workbooks.
+Defaults to "." (i.e. the current working directory).
+This location is critical to the B<list_workbooks>, B<open>,
+and B<open_re> methods.
+
+=item 1b.  OBJ->list_workbooks
 
 Returns an array of workbook files in the directory defined by the
 B<dir> property.
@@ -209,7 +216,7 @@ use Log::Log4perl qw/ get_logger /;
 
 use vars qw/ @EXPORT $VERSION /;
 
-$VERSION = "1.016";	# update this on new release
+$VERSION = "1.017";	# update this on new release
 
 #@ISA = qw(Exporter);
 #@EXPORT = qw();
@@ -365,9 +372,14 @@ sub open {
 	$self->_log->logcroak("SYNTAX: open(path)") unless defined ($pn);
 	my $fpn = File::Spec->catfile($self->dir, $pn);
 
-	if (-f $pn) {
-		$self->pathname($pn);
-	} elsif (-f $fpn) {
+# this functionality will tend to look for the file in the cwd, which is not
+# good behaviour, as it is not clear where the file is opening from and
+# since the "dir" atrribute defaults to ".", the preference is to open
+# the full path only.
+#	if (-f $pn) {
+#		$self->pathname($pn);
+#	} elsif (-f $fpn) {
+	if (-f $fpn) {
 		$self->pathname($fpn);
 		$pn = $fpn;
 	} else {
@@ -722,7 +734,7 @@ __END__
 
 =head1 VERSION
 
-Build V1.016
+Build V1.017
 
 =head1 AUTHOR
 

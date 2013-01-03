@@ -1,10 +1,10 @@
-use 5.008008;
+use 5.006004;
 use ExtUtils::MakeMaker;
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 
 
-my $preop = 'find $(DISTVNAME) -type f -exec egrep -q Build V1.016 {} \; -exec sed -i "s/___EUMM_VERSION___/Build V$(VERSION)/" {} \; -print ;' .
+my $preop = 'find $(DISTVNAME) -type f -exec egrep -q Build V1.017 {} \; -exec sed -i "s/___EUMM_VERSION___/Build V$(VERSION)/" {} \; -print ;' .
 'perldoc -uT $(DISTVNAME)/$(VERSION_FROM) > README.pod';
 
 WriteMakefile(
