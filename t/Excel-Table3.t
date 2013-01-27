@@ -133,7 +133,7 @@ Null and Trim handling.
 
 =head1 VERSION
 
-Build V1.018
+Build V1.019
 
 =head1 AUTHOR
 
