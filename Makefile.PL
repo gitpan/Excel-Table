@@ -4,11 +4,12 @@ use ExtUtils::MakeMaker;
 # the contents of the Makefile that is written.
 
 
-my $preop = 'find $(DISTVNAME) -type f -exec egrep -q Build V1.020 {} \; -exec sed -i "s/___EUMM_VERSION___/Build V$(VERSION)/" {} \; -print ;' .
-'perldoc -uT $(DISTVNAME)/$(VERSION_FROM) > README.pod';
+my $preop = 'find $(DISTVNAME) -type f -exec egrep -q Build V1.021 {} \; -exec sed -i "s/___EUMM_VERSION___/Build V$(VERSION)/" {} \; -print ;' .
+'perldoc -uT $(DISTVNAME)/$(VERSION_FROM) > $(DISTVNAME)/README.pod';
 
 WriteMakefile(
     NAME              => 'Excel::Table',
+    MIN_PERL_VERSION => '5.006004',
     VERSION_FROM      => 'lib/Excel/Table.pm', # finds $VERSION
     PREREQ_PM         => {
         'Data::Dumper' => '0',
@@ -21,6 +22,5 @@ WriteMakefile(
     ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM  => 'lib/Excel/Table.pm', # retrieve abstract from module
        AUTHOR         => 'tmcmeeki <tmcmeeki@cpan.org>') : ()),
-	dist => { PREOP => $preop, 
-	},
+	dist => { PREOP => $preop, },
 );

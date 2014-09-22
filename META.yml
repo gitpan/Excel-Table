@@ -24,4 +24,5 @@ requires:
   Log::Log4perl: 0
   Spreadsheet::ParseExcel: 0.57
   Spreadsheet::XLSX: 0
-version: 1.020
+  perl: 5.006004
+version: 1.021
