@@ -1,10 +1,6 @@
 =head1 NAME
 
-Excel::Table 
-
-=head1 AUTHOR
-
-Copyright (C) 2012  Tom McMeekin E<lt>tmcmeeki@cpan.orgE<gt>
+Excel::Table - Table processing class for Excel worksheets. 
 
 =head1 SYNOPSIS
 
@@ -59,8 +55,8 @@ Copyright (C) 2012  Tom McMeekin E<lt>tmcmeeki@cpan.orgE<gt>
 
 =head1 DESCRIPTION
 
-Excel::Table.pm - spreadsheet table processing.  Retrieves worksheets as
-if they are structured tables array-format.
+"Excel::Table" retrieves worksheets as if they are structured
+tables in array-format or optionally in hash-format.
 
 =over 4
 
@@ -192,7 +188,11 @@ Returns an array of maximum lengths of any (non-title) data in each column.
 
 =head1 VERSION
 
-Build V1.021
+Build V1.022
+
+=head1 AUTHOR
+
+Copyright (C) 2012  Tom McMeekin E<lt>tmcmeeki@cpan.orgE<gt>
 
 =head1 LICENSE
 
@@ -212,7 +212,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 =head1 SEE ALSO
 
-L<perl>, Spreadsheet::ParseExcel, Spreadsheet::XLSX.
+L<perl>, L<Spreadsheet::ParseExcel>, L<Spreadsheet::XLSX>.
 
 
 =cut
